@@ -764,6 +764,44 @@ popup.addEventListener("click", function(e) {
   }
 });
 </script>
+// Empty category message
+document.querySelectorAll(".sub-category").forEach(button => {
+  button.addEventListener("click", function() {
+
+    const products = document.querySelectorAll(".product");
+    let found = false;
+
+    products.forEach(product => {
+      if (
+        product.dataset.category === title.textContent &&
+        product.dataset.subcategory === this.textContent
+      ) {
+        found = true;
+      }
+    });
+
+    if (!found) {
+      const productsSection = document.getElementById("products");
+
+      productsSection.innerHTML = `
+        <h2 class="title">${title.textContent} <span class="gold">Collection</span></h2>
+        <div style="text-align:center;padding:40px 20px;">
+          <div style="font-size:55px;">🛍️</div>
+          <h3 style="font-size:24px;margin:15px 0;color:#c9a227;">
+            Products Coming Soon
+          </h3>
+          <p style="color:#777;">
+            ہماری ${this.textContent} collection جلد آ رہی ہے۔
+          </p>
+        </div>
+      `;
+
+      productsSection.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+  });
+});
 </body>
 </html>
  
