@@ -721,9 +721,11 @@ categoryData[category].forEach(sub => {
   button.className = "sub-category";
   button.textContent = sub;
 
-  button.onclick = function() {
+  button.addEventListener("click", function () {
 
     const products = document.querySelectorAll(".product");
+
+    let found = false;
 
     products.forEach(product => {
 
@@ -732,6 +734,7 @@ categoryData[category].forEach(sub => {
         product.dataset.subcategory === sub
       ) {
         product.style.display = "";
+        found = true;
       } else {
         product.style.display = "none";
       }
@@ -740,14 +743,35 @@ categoryData[category].forEach(sub => {
 
     popup.classList.remove("active");
 
-    document.getElementById("products").scrollIntoView({
+    const productsSection = document.getElementById("products");
+
+    if (!found) {
+      productsSection.innerHTML = `
+        <h2 class="title">
+          ${category} <span class="gold">Collection</span>
+        </h2>
+
+        <div style="text-align:center;padding:40px 20px;">
+          <div style="font-size:55px;">🛍️</div>
+          <h3 style="font-size:24px;color:#c9a227;">
+            Products Coming Soon
+          </h3>
+          <p style="color:#777;">
+            ${sub} collection جلد آ رہی ہے۔
+          </p>
+        </div>
+      `;
+    }
+
+    productsSection.scrollIntoView({
       behavior: "smooth"
     });
 
-  };
+  });
 
   subCategories.appendChild(button);
 
+});
 });
 
     popup.classList.add("active");
