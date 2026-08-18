@@ -566,37 +566,442 @@ footer{background:#0b0b0b;color:#fff;padding:45px 7%}.footergrid{display:grid;gr
 </div>
 </section>
 <section>
-  <h2 class="title">Our <span class="gold">Products</span></h2>
 
-  <div class="product-card" style="max-width:350px;margin:20px auto;padding:15px;border-radius:15px;background:#fff;box-shadow:0 4px 15px rgba(0,0,0,0.15);text-align:center;">
-
-    <img src="gent-ring.png" alt="Gent's Ring"
-         style="width:100%;border-radius:12px;display:block;">
-
-    <h3 style="font-size:22px;margin:15px 0 8px;">Gent's Ring</h3>
-
-    <div style="font-size:18px;color:#999;text-decoration:line-through;">
-      Rs. 799
-    </div>
-
-    <div style="font-size:26px;font-weight:bold;color:#c99b3b;margin:5px 0;">
-      Rs. 549
-    </div>
-
-    <div style="display:inline-block;background:#e53935;color:white;padding:5px 12px;border-radius:20px;font-weight:bold;margin:5px 0 15px;">
-      31% OFF
-    </div>
-
-    <br>
-
-    <a href="https://wa.me/923233066935?text=I%20want%20to%20order%20Gent's%20Ring"
-       style="display:inline-block;background:#25D366;color:white;text-decoration:none;padding:12px 25px;border-radius:8px;font-weight:bold;">
-      Order on WhatsApp
-    </a>
-
-  </div>
 </section>
-  
+ <!-- MR COLLECTION ANIMATED PRODUCTS -->
+
+<section id="mrAnimatedProducts">
+
+  <h2 class="title">
+    Our <span class="gold">Collections</span>
+  </h2>
+
+</section>
+
+<style>
+
+/* CATEGORY AREA */
+
+.mr-category{
+  padding:35px 0;
+  overflow:hidden;
+}
+
+/* CATEGORY NAME */
+
+.mr-category-title{
+  text-align:center;
+  font-size:28px;
+  font-weight:bold;
+  color:#b88928;
+  margin:0 0 15px;
+}
+
+
+/* LIVE SALE BAR */
+
+.mr-sale-bar{
+  width:100%;
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      90deg,
+      #050505,
+      #191919,
+      #050505
+    );
+
+  border-top:1px solid #d4af37;
+  border-bottom:1px solid #d4af37;
+
+  padding:12px 0;
+}
+
+
+/* SALE TEXT RIGHT → LEFT */
+
+.mr-sale-track{
+  display:flex;
+  width:max-content;
+  gap:30px;
+  white-space:nowrap;
+
+  animation:mrSaleMove 18s linear infinite;
+}
+
+.mr-sale-text{
+  color:#f5d77a;
+  font-weight:bold;
+  font-size:15px;
+}
+
+@keyframes mrSaleMove{
+
+  from{
+    transform:translateX(0);
+  }
+
+  to{
+    transform:translateX(-50%);
+  }
+
+}
+
+
+/* PRODUCTS AREA */
+
+.mr-products-window{
+  width:100%;
+  overflow:hidden;
+  margin-top:20px;
+}
+
+
+/* PRODUCTS LEFT → RIGHT */
+
+.mr-products-track{
+  display:flex;
+  width:max-content;
+  gap:18px;
+
+  animation:mrProductsMove 28s linear infinite;
+}
+
+@keyframes mrProductsMove{
+
+  from{
+    transform:translateX(-50%);
+  }
+
+  to{
+    transform:translateX(0);
+  }
+
+}
+
+
+/* PRODUCT CARD */
+
+.mr-product-card{
+
+  width:210px;
+  flex-shrink:0;
+
+  background:
+    linear-gradient(
+      145deg,
+      #111,
+      #292929,
+      #0b0b0b
+    );
+
+  border:1px solid #d4af37;
+  border-radius:18px;
+
+  padding:12px;
+
+  text-align:center;
+
+  box-shadow:
+    0 7px 20px rgba(0,0,0,.3);
+}
+
+
+/* PRODUCT IMAGE */
+
+.mr-product-icon{
+
+  height:150px;
+
+  border-radius:13px;
+
+  background:#181818;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  font-size:65px;
+}
+
+
+/* PRODUCT NAME */
+
+.mr-product-card h3{
+
+  color:#f5d77a;
+
+  font-size:18px;
+
+  margin:12px 0 6px;
+
+}
+
+
+/* OLD PRICE */
+
+.mr-old-price{
+
+  color:#999;
+
+  text-decoration:line-through;
+
+  font-size:14px;
+
+}
+
+
+/* NEW PRICE */
+
+.mr-new-price{
+
+  color:#d4af37;
+
+  font-size:21px;
+
+  font-weight:bold;
+
+  margin:5px 0;
+
+}
+
+
+/* DISCOUNT */
+
+.mr-discount{
+
+  display:inline-block;
+
+  background:#e53935;
+
+  color:white;
+
+  padding:4px 10px;
+
+  border-radius:20px;
+
+  font-size:12px;
+
+  font-weight:bold;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+  .mr-category-title{
+    font-size:24px;
+  }
+
+  .mr-product-card{
+    width:180px;
+  }
+
+  .mr-product-icon{
+    height:135px;
+    font-size:55px;
+  }
+
+  .mr-sale-track{
+    animation-duration:15s;
+  }
+
+  .mr-products-track{
+    animation-duration:24s;
+  }
+
+}
+
+</style>
+
+
+<script>
+
+const mrProducts = {
+
+  "Jewelry":[
+    ["💍","Gent's Ring","799","549","31% OFF"],
+    ["📿","Gold Chain","1499","999","33% OFF"],
+    ["💎","Necklace","1899","1299","32% OFF"],
+    ["💖","Hand Bracelet","999","699","30% OFF"],
+    ["✨","Earrings","899","599","33% OFF"]
+  ],
+
+  "Women Accessories":[
+    ["👜","Fashion Handbag","2499","1799","28% OFF"],
+    ["👛","Ladies Wallet","999","699","30% OFF"],
+    ["🧣","Fashion Scarf","799","549","31% OFF"],
+    ["🕶️","Ladies Sunglasses","1299","899","31% OFF"],
+    ["🎀","Hair Accessories","599","399","33% OFF"]
+  ],
+
+  "Kids Clothes":[
+    ["👕","Kids T-Shirt","999","699","30% OFF"],
+    ["👗","Girls Dress","1799","1199","33% OFF"],
+    ["🧥","Kids Suit","1999","1399","30% OFF"],
+    ["👖","Kids Pants","1199","799","33% OFF"],
+    ["🍼","Baby Wear","899","599","33% OFF"]
+  ],
+
+  "Men Accessories":[
+    ["🕶️","Men Sunglasses","1499","999","33% OFF"],
+    ["👝","Leather Wallet","999","699","30% OFF"],
+    ["👔","Fashion Tie","799","549","31% OFF"],
+    ["🧢","Premium Cap","899","599","33% OFF"],
+    ["🔑","Keychain","499","299","40% OFF"]
+  ],
+
+  "Bags":[
+    ["👜","Luxury Hand Bag","2999","2199","27% OFF"],
+    ["🎒","Premium Backpack","2499","1799","28% OFF"],
+    ["👝","Crossbody Bag","1999","1399","30% OFF"],
+    ["👜","Shoulder Bag","2299","1599","30% OFF"],
+    ["💼","Travel Bag","3499","2499","29% OFF"]
+  ],
+
+  "Watches":[
+    ["⌚","Men Classic Watch","2499","1699","32% OFF"],
+    ["⌚","Ladies Watch","2299","1599","30% OFF"],
+    ["⌚","Smart Watch","3999","2999","25% OFF"],
+    ["⌚","Couple Watches","4499","3299","27% OFF"],
+    ["⌚","Kids Watch","1299","899","31% OFF"]
+  ],
+
+  "Home Decor":[
+    ["🏠","Wall Decor","1799","1199","33% OFF"],
+    ["💡","Decorative Lamp","2499","1799","28% OFF"],
+    ["🏺","Decorative Vase","1499","999","33% OFF"],
+    ["🕰️","Wall Clock","1999","1399","30% OFF"]
+  ],
+
+  "New Arrivals":[
+    ["✨","New Jewelry","1999","1399","30% OFF"],
+    ["🔥","New Fashion","2499","1699","32% OFF"],
+    ["🛍️","New Bags","2999","2199","27% OFF"],
+    ["⌚","New Watches","3499","2499","29% OFF"],
+    ["🏠","New Home Decor","1999","1399","30% OFF"]
+  ]
+
+};
+
+
+const mrContainer =
+  document.getElementById("mrAnimatedProducts");
+
+
+Object.keys(mrProducts).forEach(category => {
+
+  let productsHTML = "";
+
+  mrProducts[category].forEach(product => {
+
+    productsHTML += `
+
+      <div class="mr-product-card">
+
+        <div class="mr-product-icon">
+          ${product[0]}
+        </div>
+
+        <h3>
+          ${product[1]}
+        </h3>
+
+        <div class="mr-old-price">
+          Rs. ${product[2]}
+        </div>
+
+        <div class="mr-new-price">
+          Rs. ${product[3]}
+        </div>
+
+        <div class="mr-discount">
+          ${product[4]}
+        </div>
+
+      </div>
+
+    `;
+
+  });
+
+
+  /* Duplicate products for smooth loop */
+
+  productsHTML += productsHTML;
+
+
+  const saleText = `
+
+    <span class="mr-sale-text">
+      🔴 LIVE SALE
+    </span>
+
+    <span class="mr-sale-text">
+      🔥 SPECIAL OFFER
+    </span>
+
+    <span class="mr-sale-text">
+      ✨ NEW ARRIVALS
+    </span>
+
+    <span class="mr-sale-text">
+      🚚 CASH ON DELIVERY
+    </span>
+
+    <span class="mr-sale-text">
+      🛍️ SHOP NOW
+    </span>
+
+  `;
+
+
+  mrContainer.innerHTML += `
+
+    <div class="mr-category">
+
+      <h2 class="mr-category-title">
+        ${category}
+      </h2>
+
+
+      <!-- LIVE SALE -->
+
+      <div class="mr-sale-bar">
+
+        <div class="mr-sale-track">
+
+          ${saleText}
+          ${saleText}
+
+        </div>
+
+      </div>
+
+
+      <!-- PRODUCTS -->
+
+      <div class="mr-products-window">
+
+        <div class="mr-products-track">
+
+          ${productsHTML}
+
+        </div>
+
+      </div>
+
+    </div>
+
+  `;
+
+});
+
+</script> 
 <section class="about" id="about">
 <div class="aboutbox"><h2>About MR Collection</h2><p>MR Collection is your destination for stylish jewelry, fashion accessories, kids' clothing, bags, flowers hand made
   watches and beautiful home decor items — all in one place.</p></div>
