@@ -622,87 +622,14 @@ footer{background:#0b0b0b;color:#fff;padding:45px 7%}.footergrid{display:grid;gr
   " aria-label="WhatsApp">☏</a>
 <script>
 const categoryData = {
-  "Jewelry": [
-    "Chains",
-    "Lockets",
-    "Necklaces",
-    "Rings",
-    "Hand Bracelets",
-    "Bangles",
-    "Earrings",
-    "Anklets",
-    "Jewelry Sets"
-  ],
-
-  "Women Accessories": [
-    "Handbags",
-    "Wallets",
-    "Scarves",
-    "Hair Accessories",
-    "Sunglasses",
-    "Belts",
-    "Fashion Accessories"
-  ],
-
-  "Kids Clothes": [
-    "Boys Clothes",
-    "Girls Clothes",
-    "T-Shirts",
-    "Shirts",
-    "Dresses",
-    "Pants",
-    "Suits",
-    "Baby Wear"
-  ],
-
-  "Men Accessories": [
-    "Wallets",
-    "Belts",
-    "Sunglasses",
-    "Caps",
-    "Watches",
-    "Perfumes",
-    "Ties",
-    "Cufflinks",
-    "Keychains"
-  ],
-
-  "Bags": [
-    "Hand Bags",
-    "Shoulder Bags",
-    "Crossbody Bags",
-    "Clutches",
-    "Backpacks",
-    "Travel Bags"
-  ],
-
-  "Watches": [
-    "Men Watches",
-    "Women Watches",
-    "Kids Watches",
-    "Smart Watches",
-    "Couple Watches"
-  ],
-
-  "Home Decor": [
-    "Wall Decor",
-    "Table Decor",
-    "Lamps",
-    "Vases",
-    "Clocks",
-    "Cushions",
-    "Decorative Pieces",
-    "Kitchen Decor"
-  ],
-
-  "New Arrivals": [
-    "New Jewelry",
-    "New Fashion",
-    "New Kids Collection",
-    "New Bags",
-    "New Watches",
-    "New Home Decor"
-  ]
+  "Jewelry": ["Chains","Lockets","Necklaces","Rings","Hand Bracelets","Bangles","Earrings","Anklets","Jewelry Sets"],
+  "Women Accessories": ["Handbags","Wallets","Scarves","Hair Accessories","Sunglasses","Belts","Fashion Accessories"],
+  "Kids Clothes": ["Boys Clothes","Girls Clothes","T-Shirts","Shirts","Dresses","Pants","Suits","Baby Wear"],
+  "Men Accessories": ["Wallets","Belts","Sunglasses","Caps","Watches","Perfumes","Ties","Cufflinks","Keychains"],
+  "Bags": ["Hand Bags","Shoulder Bags","Crossbody Bags","Clutches","Backpacks","Travel Bags"],
+  "Watches": ["Men Watches","Women Watches","Kids Watches","Smart Watches","Couple Watches"],
+  "Home Decor": ["Wall Decor","Table Decor","Lamps","Vases","Clocks","Cushions","Decorative Pieces","Kitchen Decor"],
+  "New Arrivals": ["New Jewelry","New Fashion","New Kids Collection","New Bags","New Watches","New Home Decor"]
 };
 
 const popup = document.getElementById("categoryPopup");
@@ -714,69 +641,41 @@ document.querySelectorAll(".category-btn").forEach(card => {
   card.addEventListener("click", function() {
 
     const category = this.dataset.category;
-
     title.textContent = category;
     subCategories.innerHTML = "";
 
-categoryData[category].forEach(sub => {
+    categoryData[category].forEach(sub => {
 
-  const button = document.createElement("div");
+      const button = document.createElement("div");
+      button.className = "sub-category";
+      button.textContent = sub;
 
-  button.className = "sub-category";
-  button.textContent = sub;
+      button.addEventListener("click", function() {
+        popup.classList.remove("active");
 
-  button.addEventListener("click", function () {
+        const productsSection = document.querySelector(".product-card").parentElement;
 
-    const products = document.querySelectorAll(".product");
+        productsSection.innerHTML = `
+          <h2 class="title">
+            ${category} <span class="gold">Collection</span>
+          </h2>
 
-    let found = false;
+          <div style="text-align:center;padding:40px 20px;">
+            <div style="font-size:55px;">🛍️</div>
+            <h3 style="font-size:24px;color:#c9a227;">
+              Products Coming Soon
+            </h3>
+            <p style="color:#777;">
+              ${sub} collection جلد آ رہی ہے۔
+            </p>
+          </div>
+        `;
 
-    products.forEach(product => {
+        productsSection.scrollIntoView({behavior:"smooth"});
+      });
 
-      if (
-        product.dataset.category === category &&
-        product.dataset.subcategory === sub
-      ) {
-        product.style.display = "";
-        found = true;
-      } else {
-        product.style.display = "none";
-      }
-
+      subCategories.appendChild(button);
     });
-
-    popup.classList.remove("active");
-
-    const productsSection = document.getElementById("products");
-
-    if (!found) {
-      productsSection.innerHTML = `
-        <h2 class="title">
-          ${category} <span class="gold">Collection</span>
-        </h2>
-
-        <div style="text-align:center;padding:40px 20px;">
-          <div style="font-size:55px;">🛍️</div>
-          <h3 style="font-size:24px;color:#c9a227;">
-            Products Coming Soon
-          </h3>
-          <p style="color:#777;">
-            ${sub} collection جلد آ رہی ہے۔
-          </p>
-        </div>
-      `;
-    }
-
-    productsSection.scrollIntoView({
-      behavior: "smooth"
-    });
-
-  });
-
-  subCategories.appendChild(button);
-
-});
-});
 
     popup.classList.add("active");
   });
@@ -792,7 +691,6 @@ popup.addEventListener("click", function(e) {
   }
 });
 </script>
-
 </body>
 </html>
  
